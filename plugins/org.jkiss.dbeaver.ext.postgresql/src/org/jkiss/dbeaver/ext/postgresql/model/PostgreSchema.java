@@ -519,6 +519,7 @@ public class PostgreSchema implements
             if (!monitor.isCanceled()) {
                 Collection<PostgreTableBase> tablesOrViews = getTableCache().getAllObjects(monitor, this);
 
+                options.put(DBPScriptObject.OPTION_FULLY_QUALIFIED_NAMES, true);
                 List<PostgreTableBase> allTables = new ArrayList<>();
                 for (PostgreTableBase tableOrView : tablesOrViews) {
                     monitor.subTask(tableOrView.getName());
